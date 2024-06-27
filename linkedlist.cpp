@@ -49,6 +49,25 @@ temp->next=newdata;
  
 }
 
+void deleteNode(Node* &head , int pos){
+    Node* temp = head;
+    Node* temp1;
+//for  position head
+    if(pos==1){
+       temp1=head;
+       head=head->next;
+   }
+
+    for(int i= 0;i<(pos-1); i++){
+       // cout << temp->data <<endl;
+        temp1 = temp;
+        temp = temp->next;
+    }
+   
+    temp1->next=temp->next;                      ;
+    //delete(temp1);
+}
+
 int main(){
 
 Node* head = new Node(10);
@@ -61,7 +80,11 @@ insertionAtEnd(head,15);
 //print(head);
 
 insertionAtPosition(head,1,7);
+//print(head);
+
+deleteNode(head,4);
 print(head);
+
 
 return 0;
 }
